@@ -10,7 +10,9 @@ import javafx.stage.WindowEvent;
 import java.io.IOException;
 
 public class App extends Application {
-    public static short PORT = 6000;
+    protected static int PORT = 6000;
+    private static UDPServer server = null;
+    private static AppGUIController guiController;
 
     @Override
     public void start(Stage stage) throws IOException {
@@ -22,15 +24,24 @@ public class App extends Application {
         stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
             @Override
             public void handle(WindowEvent event) {
+                if(server != null){
+                    server.interrupt();
+                }
                 System.exit(0);
             }
         });
         stage.show();
         System.out.println("stage set!");
+        guiController = fxmlLoader.getController();
     }
 
     public static void main(String[] args) {
         System.out.printf("App will listen to port %d for connections!%n",PORT);
         launch();
+    }
+
+    public static void startServer(int port){
+        server = new UDPServer(port, guiController);
+        server.start();
     }
 }

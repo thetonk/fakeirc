@@ -4,7 +4,7 @@ public class AppStartup {
     public static void main(String[] args){
         if (args.length > 0){
             try{
-                App.PORT = Short.parseShort(args[0]);
+                App.PORT = Integer.parseInt(args[0]);
             }
             catch (NumberFormatException e){
                 System.out.println("Invalid port number! Using default port 6000!");

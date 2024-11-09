@@ -6,6 +6,8 @@ import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 
+import java.net.DatagramSocket;
+
 public class AppGUIController {
 
     @FXML
@@ -16,13 +18,15 @@ public class AppGUIController {
     private TextArea messages;
     @FXML
     private TextField msgToSend;
-
+    @FXML
+    private TextField addressField;
     @FXML
     private Spinner<Integer> portField;
 
     @FXML
     public void initialize(){
         portField.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(1,65535,6000));
+        portField.getValueFactory().setValue(App.PORT);
         System.out.println("gui initialized!");
     }
 
@@ -36,17 +40,23 @@ public class AppGUIController {
 
     @FXML
     protected void sendMessageClicked(ActionEvent actionEvent) {
-        System.out.println("Hello ");
-        System.out.println(portField.getValue());
+        System.out.println("Hello");
         String message = msgToSend.getText();
         if (!message.isEmpty()){
-            messages.appendText(msgToSend.getText()+"\n");
+            messages.appendText(msgToSend.getText());
         }
         actionEvent.consume();
     }
 
     @FXML
-    protected void testConnection(ActionEvent actionEvent){
+    protected void connectButtonClick(ActionEvent actionEvent){
+        int port = portField.getValue();
+        App.startServer(port);
         actionEvent.consume();
+    }
+
+    @FXML
+    protected void addMessage(String message){
+        messages.appendText(message+"\n");
     }
 }

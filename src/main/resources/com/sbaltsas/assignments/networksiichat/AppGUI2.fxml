@@ -115,7 +115,7 @@
                      <HBox.margin>
                         <Insets right="30.0" />
                      </HBox.margin></Spinner>
-                  <Button mnemonicParsing="false" onAction="#testConnection" text="Test Connection!" />
+                  <Button mnemonicParsing="false" onAction="#connectButtonClick" text="Connect!" />
                </children>
             </HBox>
          </children>
