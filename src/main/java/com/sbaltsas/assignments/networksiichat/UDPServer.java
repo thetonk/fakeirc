@@ -4,6 +4,8 @@ import javafx.application.Platform;
 
 import java.io.IOException;
 import java.net.*;
+import java.nio.charset.StandardCharsets;
+import java.util.Arrays;
 
 public class UDPServer extends Thread{
     private DatagramSocket socket;
@@ -28,17 +30,15 @@ public class UDPServer extends Thread{
     public void run(){
         while (!Thread.interrupted()) {
             try {
+                Arrays.fill(buffer,(byte)0);
                 DatagramPacket packet = new DatagramPacket(buffer, PACKET_SIZE);
                 socket.receive(packet);
                 System.out.printf("Packet length: %d, offset: %d\n",packet.getLength(),packet.getOffset());
-                InetAddress clientAddress = packet.getAddress();
-                int clientPort = packet.getPort();
-                String message = new String(packet.getData(),packet.getOffset(),packet.getLength());
+                String message = new String(packet.getData(),packet.getOffset(),packet.getLength(), StandardCharsets.UTF_8);
+                System.out.printf("Message received! %s%n",message);
                 Platform.runLater(() -> {
-                    appGUIController.addMessage(message);
+                    appGUIController.addMessage(packet.getAddress().getHostAddress(),message);
                 });
-                packet = new DatagramPacket(buffer,PACKET_SIZE,clientAddress,clientPort);
-                socket.send(packet);
             } catch (IOException e) {
                 System.err.println("[SERVER] UDP packet could not be received!");
             }

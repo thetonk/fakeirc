@@ -38,14 +38,15 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.SeparatorMenuItem?>
 <?import javafx.scene.control.Spinner?>
-<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.TextFlow?>
 
 <VBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="410.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sbaltsas.assignments.networksiichat.AppGUIController">
   <children>
@@ -125,8 +126,12 @@
       </VBox>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="367.0" prefWidth="640.0" VBox.vgrow="ALWAYS">
          <children>
-            <TextArea id="messages" fx:id="messages" editable="false" layoutX="5.0" layoutY="5.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="224.0" prefWidth="630.0" promptText="No messages!" AnchorPane.leftAnchor="2.0" AnchorPane.topAnchor="2.0" />
-            <TextField id="msgToSend" fx:id="msgToSend" layoutX="2.0" layoutY="258.0" minWidth="-Infinity" onKeyPressed="#onMessageKeyPressed" prefHeight="24.0" prefWidth="455.0" promptText="Type your message..." AnchorPane.leftAnchor="4.0" />
+            <ScrollPane fx:id="textcontainer" fitToHeight="true" layoutY="-6.0" prefHeight="257.0" prefWidth="633.0" vbarPolicy="ALWAYS" AnchorPane.bottomAnchor="64.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="2.0">
+              <content>
+                  <TextFlow id="messages" fx:id="messages" lineSpacing="2.0" prefHeight="243.0" prefWidth="628.0" />
+              </content>
+            </ScrollPane>
+            <TextField id="msgToSend" fx:id="msgToSend" layoutX="2.0" layoutY="258.0" minWidth="-Infinity" onKeyPressed="#onMessageKeyPressed" prefHeight="24.0" prefWidth="455.0" promptText="Type your message..." AnchorPane.leftAnchor="4.0" AnchorPane.topAnchor="258.0" />
             <Button id="sendBtn" fx:id="sendBtn" layoutX="490.0" layoutY="258.0" mnemonicParsing="false" onAction="#sendMessageClicked" prefHeight="24.0" prefWidth="85.0" text="Send!" />
             <Separator layoutX="12.0" layoutY="300.0" maxWidth="1.7976931348623157E308" prefHeight="0.0" prefWidth="0.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
             <Label fx:id="statusLabel" alignment="BOTTOM_LEFT" contentDisplay="TEXT_ONLY" layoutX="3.0" layoutY="302.0" prefHeight="16.0" prefWidth="620.0" text="Status" />

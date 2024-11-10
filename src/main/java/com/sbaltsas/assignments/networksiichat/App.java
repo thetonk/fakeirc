@@ -8,9 +8,11 @@ import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
 import java.io.IOException;
+import java.net.InetAddress;
 
 public class App extends Application {
     protected static int PORT = 6000;
+    protected static UDPClient client = null;
     private static UDPServer server = null;
     private static AppGUIController guiController;
 
@@ -27,12 +29,16 @@ public class App extends Application {
                 if(server != null){
                     server.interrupt();
                 }
+                if(client != null){
+                    client.interrupt();
+                }
                 System.exit(0);
             }
         });
         stage.show();
         System.out.println("stage set!");
         guiController = fxmlLoader.getController();
+        startServer(App.PORT);
     }
 
     public static void main(String[] args) {
@@ -40,8 +46,12 @@ public class App extends Application {
         launch();
     }
 
-    public static void startServer(int port){
+    private static void startServer(int port){
         server = new UDPServer(port, guiController);
         server.start();
+    }
+    protected static void startClient(InetAddress address, int port){
+        client = new UDPClient(address,port,guiController);
+        client.start();
     }
 }
