@@ -22,7 +22,10 @@ public class UDPServer extends Thread{
             socket.bind(address);
             System.out.println("[SERVER] UDP server started!");
         } catch (SocketException e){
-            System.err.printf("[SERVER] UDP server could not be started! %s", e);
+            System.err.printf("[SERVER] UDP server could not be started! Reason %s", e);
+            Platform.runLater(() -> {
+                guiController.showError("UDP server startup failed",String.format("UDP server unable to start! Reason: %s",e));
+            });
         }
     }
 

@@ -48,7 +48,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.TextFlow?>
 
-<VBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="410.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sbaltsas.assignments.networksiichat.AppGUIController">
+<VBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="410.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sbaltsas.assignments.networksiichat.AppGUIController">
   <children>
     <MenuBar VBox.vgrow="NEVER">
       <menus>

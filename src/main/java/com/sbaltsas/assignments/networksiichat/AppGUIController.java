@@ -1,21 +1,28 @@
 package com.sbaltsas.assignments.networksiichat;
 
 import javafx.collections.ListChangeListener;
-import javafx.css.PseudoClass;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;
+import java.util.Objects;
 
 public class AppGUIController {
+
+    private boolean clientConnected = false;
+    private boolean firstMessage = true;
+    private Text placeHolder;
+
     @FXML
     private Button sendBtn;
     @FXML
@@ -44,6 +51,8 @@ public class AppGUIController {
                 textcontainer.setVvalue(1.0); //scroll down
             }
         });
+        placeHolder = new Text("No messages? Better start chatting!");
+        messages.getChildren().add(placeHolder);
     }
 
     @FXML
@@ -67,15 +76,21 @@ public class AppGUIController {
         try{
             InetAddress address = InetAddress.getByName(addressField.getText());
             App.startClient(address,port);
+            clientConnected = true;
         }
         catch (UnknownHostException e){
-            System.err.println("Error! Peer address is invalid!");
+            System.err.println("Peer address is invalid!");
+            showError("Invalid Host","The peer address you entered is invalid!");
         }
         actionEvent.consume();
     }
 
     @FXML
     protected synchronized void addMessage(String address,String message){
+        if(firstMessage){
+            firstMessage = false;
+            messages.getChildren().remove(placeHolder);
+        }
         Text text = new Text("<"+address+"> "+message+"\n");
         if(address.equalsIgnoreCase("you")){
             text.setFill(Color.GREEN);
@@ -84,11 +99,36 @@ public class AppGUIController {
             text.setFill(Color.BLUE);
         }
         messages.getChildren().add(text);
+        msgToSend.clear();
+        String audioFile = Objects.requireNonNull(getClass().getResource("kururin.mp3")).toExternalForm();
+        Media audio = new Media(audioFile);
+        final MediaPlayer mediaPlayer = new MediaPlayer(audio);
+        mediaPlayer.setOnEndOfMedia(() -> {
+            mediaPlayer.stop();
+        });
+        mediaPlayer.play();
     }
 
     private synchronized void sendMessageToClient(String message){
-        if(!message.isEmpty()){
-            App.client.addMessageToQueue(message);
+        if(clientConnected){
+            if(!message.isEmpty()){
+                App.client.addMessageToQueue(message);
+            }
         }
+        else{
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Not connected");
+            alert.setHeaderText(null);
+            alert.setContentText("You must connect to peer first in order to send messages!");
+            alert.show();
+        }
+    }
+
+    protected synchronized void showError(String title, String message){
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.show();
     }
 }

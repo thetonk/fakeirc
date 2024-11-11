@@ -25,6 +25,9 @@ public class UDPClient extends Thread{
         }
         catch (SocketException e){
             System.err.println("[CLIENT] Error! Cannot initialize UDP client!");
+            Platform.runLater(() -> {
+                appGUIController.showError("Peer connection failed","Cannot connect to peer! Is it online?");
+            });
         }
     }
 

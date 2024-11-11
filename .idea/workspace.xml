@@ -9,12 +9,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c2c9608c-c165-48d4-8ac2-cd697b9e6ac0" name="Changes" comment="First server implementation">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sbaltsas/assignments/networksiichat/UDPClient.java" afterDir="false" />
+    <list default="true" id="c2c9608c-c165-48d4-8ac2-cd697b9e6ac0" name="Changes" comment="First client implementation">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/sbaltsas/assignments/networksiichat/kururin.mp3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sbaltsas/assignments/networksiichat/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sbaltsas/assignments/networksiichat/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sbaltsas/assignments/networksiichat/AppGUIController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sbaltsas/assignments/networksiichat/AppGUIController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sbaltsas/assignments/networksiichat/UDPClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sbaltsas/assignments/networksiichat/UDPClient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sbaltsas/assignments/networksiichat/UDPServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sbaltsas/assignments/networksiichat/UDPServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/sbaltsas/assignments/networksiichat/AppGUI2.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/sbaltsas/assignments/networksiichat/AppGUI2.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -57,14 +59,19 @@
     "Application.AppStartup2.executor": "Run",
     "Application.AppStartup6400.executor": "Run",
     "Application.AppStartup6500.executor": "Run",
+    "Downloaded.Files.Path.Enabled": "false",
+    "Maven.NetworksIIChat [package].executor": "Run",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
+    "project.structure.last.edited": "Artifacts",
+    "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.4827586",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+    "settings.editor.selected.configurable": "reference.settings.project.maven.importing"
   }
 }]]></component>
   <component name="RunManager" selected="Compound.Run parallel twice">
@@ -126,12 +133,21 @@
       <option name="project" value="LOCAL" />
       <updated>1731195933267</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="First client implementation">
+      <option name="closed" value="true" />
+      <created>1731251181153</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1731251181153</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial commit" />
     <MESSAGE value="First server implementation" />
-    <option name="LAST_COMMIT_MESSAGE" value="First server implementation" />
+    <MESSAGE value="First client implementation" />
+    <option name="LAST_COMMIT_MESSAGE" value="First client implementation" />
   </component>
 </project>
