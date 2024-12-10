@@ -36,12 +36,20 @@ public class UDPServer extends Thread{
                 Arrays.fill(buffer,(byte)0);
                 DatagramPacket packet = new DatagramPacket(buffer, PACKET_SIZE);
                 socket.receive(packet);
-                System.out.printf("Packet length: %d, offset: %d\n",packet.getLength(),packet.getOffset());
-                String message = new String(packet.getData(),packet.getOffset(),packet.getLength(), StandardCharsets.UTF_8);
-                System.out.printf("Message received! %s%n",message);
-                Platform.runLater(() -> {
-                    appGUIController.addMessage(packet.getAddress().getHostAddress(),message);
-                });
+                System.out.printf("[SERVER] Got packet with length: %d, offset: %d\n",packet.getLength(),packet.getOffset());
+                byte[] header = Arrays.copyOfRange(packet.getData(), packet.getOffset(), packet.getOffset() + 5); // split incoming message into header and payload
+                byte[] payload = Arrays.copyOfRange(packet.getData(), packet.getOffset() + 5, packet.getLength());
+                String headerText = new String(header, StandardCharsets.UTF_8);
+                System.out.printf("Packet hdr: %s\n", headerText);
+                if(headerText.equals("TEXT_")) {
+                    String payloadText = new String(payload, StandardCharsets.UTF_8);
+                    System.out.printf("Text message received! %s\n", payloadText);
+                    Platform.runLater(() -> {
+                        appGUIController.addMessage(packet.getAddress().getHostAddress(), payloadText);
+                    });
+                } else if (headerText.equals("CALL_")) {
+                    App.callOutput.loadBuffer(payload);
+                }
             } catch (IOException e) {
                 System.err.println("[SERVER] UDP packet could not be received!");
             }

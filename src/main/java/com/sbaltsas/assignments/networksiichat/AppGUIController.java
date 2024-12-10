@@ -86,6 +86,20 @@ public class AppGUIController {
     }
 
     @FXML
+    protected void callButtonClick(ActionEvent actionEvent){
+        if(clientConnected){
+            App.callInput.isOnCall = true;
+        }else{
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Not connected");
+            alert.setHeaderText(null);
+            alert.setContentText("You must connect to peer first in order to call!");
+            alert.show();
+        }
+        actionEvent.consume();
+    }
+
+    @FXML
     protected synchronized void addMessage(String address,String message){
         if(firstMessage){
             firstMessage = false;
@@ -112,7 +126,7 @@ public class AppGUIController {
     private synchronized void sendMessageToClient(String message){
         if(clientConnected){
             if(!message.isEmpty()){
-                App.client.addMessageToQueue(message);
+                App.client.sendTextPacket(message);
             }
         }
         else{

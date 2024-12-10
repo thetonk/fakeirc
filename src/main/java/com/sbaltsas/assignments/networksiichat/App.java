@@ -13,6 +13,8 @@ import java.net.InetAddress;
 public class App extends Application {
     protected static int PORT = 6000;
     protected static UDPClient client = null;
+    protected static CallInput callInput = null;
+    protected static CallOutput callOutput = null;
     private static UDPServer server = null;
     private static AppGUIController guiController;
 
@@ -39,6 +41,7 @@ public class App extends Application {
         System.out.println("stage set!");
         guiController = fxmlLoader.getController();
         startServer(App.PORT);
+        startAudio();
     }
 
     public static void main(String[] args) {
@@ -49,9 +52,17 @@ public class App extends Application {
     private static void startServer(int port){
         server = new UDPServer(port, guiController);
         server.start();
+
+    }
+    private static void startAudio(){
+        callInput = new CallInput();
+        callInput.start();
+        callOutput = new CallOutput();
+        callOutput.start();
     }
     protected static void startClient(InetAddress address, int port){
         client = new UDPClient(address,port,guiController);
         client.start();
+
     }
 }
