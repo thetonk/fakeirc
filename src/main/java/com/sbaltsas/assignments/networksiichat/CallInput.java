@@ -10,7 +10,7 @@ public class CallInput extends Thread {
     protected boolean isOnCall = false;
 
     public CallInput(){
-        format = new AudioFormat(44000, 8, 1, true, true);
+        format = new AudioFormat(8000, 8, 1, true, true);
         audioData = new byte[1000];
 
         Mixer.Info[] mixerInfo = AudioSystem.getMixerInfo();    //get available mixers
@@ -39,25 +39,36 @@ public class CallInput extends Thread {
             System.err.println("[CallClient] Microphone init failed!");
             System.err.println(ex);
         }
+        if(!microphone.isRunning()){
+            System.out.println("mic opening");
+            microphone.start();
+        }
     }
 
 
     @Override
     public void run(){
         while (!Thread.interrupted()){
-            if(isOnCall){
-                if(!microphone.isRunning()){
-                    System.out.println("mic opening");
-                    microphone.start();
-                }
-            }
-            if(inputAvailable && isOnCall){
+            if(inputAvailable){
                 //System.out.println("sampling");
+                long remaining = audioData.length - microphone.available();
+                while (remaining > 0) {
+                    long ms = (long) (1000 * remaining / format.getSampleRate());
+                    if (ms > 5) {
+                        try {
+                            Thread.sleep(ms);
+                        } catch (InterruptedException e) {
+                        }
+                    }
+                    remaining = audioData.length - microphone.available();
+                }
                 microphone.read(audioData, 0, 1000);
                 //System.out.println("sending");
                 //System.out.println(audioData);
                 //isOnCall = false;
-                App.client.sendVoicePacket(audioData);
+                if(isOnCall) {
+                    App.client.sendVoicePacket(audioData);
+                }
             }
         }
     }

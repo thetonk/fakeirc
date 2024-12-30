@@ -47,7 +47,7 @@ public class UDPServer extends Thread{
                     Platform.runLater(() -> {
                         appGUIController.addMessage(packet.getAddress().getHostAddress(), payloadText);
                     });
-                } else if (headerText.equals("CALL_")) {
+                } else if (headerText.equals("CALL_") && App.callOutput != null) {
                     App.callOutput.loadBuffer(payload);
                 }
             } catch (IOException e) {
