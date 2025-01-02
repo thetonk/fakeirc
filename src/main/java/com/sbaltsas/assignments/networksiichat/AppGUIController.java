@@ -86,6 +86,7 @@ public class AppGUIController {
             showError("Invalid Host","The peer address you entered is invalid!");
         }
         App.connectionState = ConnectionState.CONNECTED;
+        statusLabel.setText(App.connectionState.toString());
         actionEvent.consume();
     }
 
