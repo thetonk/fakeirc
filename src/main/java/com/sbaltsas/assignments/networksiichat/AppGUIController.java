@@ -55,6 +55,7 @@ public class AppGUIController {
         });
         placeHolder = new Text("No messages? Better start chatting!");
         messages.getChildren().add(placeHolder);
+        statusLabel.setText(App.connectionState.toString());
     }
 
     @FXML
@@ -84,6 +85,7 @@ public class AppGUIController {
             System.err.println("Peer address is invalid!");
             showError("Invalid Host","The peer address you entered is invalid!");
         }
+        App.connectionState = ConnectionState.CONNECTED;
         actionEvent.consume();
     }
 
@@ -91,13 +93,16 @@ public class AppGUIController {
     protected void callButtonClick(ActionEvent actionEvent){
         boolean call = callButton.isSelected();
         if (call){
+            App.connectionState = ConnectionState.ON_CALL;
             callButton.setText("End call");
         }
         else{
+            App.connectionState = ConnectionState.CONNECTED;
             callButton.setText("Call!");
         }
         if(clientConnected){
             App.callInput.isOnCall = call;
+            statusLabel.setText(App.connectionState.toString());
         }else{
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Not connected");
@@ -117,12 +122,12 @@ public class AppGUIController {
         Text text = new Text("<"+address+"> "+message+"\n");
         if(address.equalsIgnoreCase("you")){
             text.setFill(Color.GREEN);
+            msgToSend.clear();
         }
         else{
             text.setFill(Color.BLUE);
         }
         messages.getChildren().add(text);
-        msgToSend.clear();
         String audioFile = Objects.requireNonNull(getClass().getResource("kururin.mp3")).toExternalForm();
         Media audio = new Media(audioFile);
         final MediaPlayer mediaPlayer = new MediaPlayer(audio);

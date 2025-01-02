@@ -15,12 +15,14 @@ public class App extends Application {
     protected static UDPClient client = null;
     protected static CallInput callInput = null;
     protected static CallOutput callOutput = null;
+    protected static ConnectionState connectionState = null;
     private static UDPServer server = null;
     private static AppGUIController guiController;
 
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("AppGUI2.fxml"));
+        connectionState = ConnectionState.READY;
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("BingChat");
         stage.setScene(scene);
