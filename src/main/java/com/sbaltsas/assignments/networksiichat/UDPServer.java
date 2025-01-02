@@ -10,7 +10,7 @@ import java.util.Arrays;
 public class UDPServer extends Thread{
     private DatagramSocket socket;
     private final AppGUIController appGUIController;
-    public final static int PACKET_SIZE = 65507; //65535 bytes - 20 bytes (ipv4) - 8 bytes (udp header)
+    public final static int PACKET_SIZE = 1500;
     private final byte[] buffer;
 
     public UDPServer(int port, AppGUIController guiController){

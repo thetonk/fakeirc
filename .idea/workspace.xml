@@ -9,11 +9,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c2c9608c-c165-48d4-8ac2-cd697b9e6ac0" name="Changes" comment="First client implementation">
+    <list default="true" id="c2c9608c-c165-48d4-8ac2-cd697b9e6ac0" name="Changes" comment="improve GUI, add support for Windows">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sbaltsas/assignments/networksiichat/AppGUIController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sbaltsas/assignments/networksiichat/AppGUIController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/sbaltsas/assignments/networksiichat/AppGUI2.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/sbaltsas/assignments/networksiichat/AppGUI2.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sbaltsas/assignments/networksiichat/CallInput.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sbaltsas/assignments/networksiichat/CallInput.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sbaltsas/assignments/networksiichat/CallOutput.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sbaltsas/assignments/networksiichat/CallOutput.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sbaltsas/assignments/networksiichat/UDPServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sbaltsas/assignments/networksiichat/UDPServer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,7 +78,7 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="Compound.Run parallel twice">
+  <component name="RunManager" selected="Application.AppStartup6500">
     <configuration name="AppStartup6400" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="com.sbaltsas.assignments.networksiichat.AppStartup" />
       <module name="NetworksIIChat" />
@@ -128,7 +128,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1731163551883</updated>
-      <workItem from="1735813771814" duration="1519000" />
+      <workItem from="1735813771814" duration="2565000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <option name="closed" value="true" />
@@ -154,7 +154,15 @@
       <option name="project" value="LOCAL" />
       <updated>1731251181153</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="improve GUI, add support for Windows">
+      <option name="closed" value="true" />
+      <created>1735815478549</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1735815478549</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -164,6 +172,7 @@
     <MESSAGE value="Initial commit" />
     <MESSAGE value="First server implementation" />
     <MESSAGE value="First client implementation" />
-    <option name="LAST_COMMIT_MESSAGE" value="First client implementation" />
+    <MESSAGE value="improve GUI, add support for Windows" />
+    <option name="LAST_COMMIT_MESSAGE" value="improve GUI, add support for Windows" />
   </component>
 </project>

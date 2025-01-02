@@ -10,7 +10,7 @@ public class CallOutput extends Thread {
     private byte[] audioBuffer;
     protected boolean isDataReady = false;
     public CallOutput(){
-        format = new AudioFormat(8000, 8, 1, true, true);
+        format = new AudioFormat(44000, 8, 1, true, true);
         audioBuffer = new byte[1000];
         DataLine.Info info = new DataLine.Info(SourceDataLine.class,
                 format);
@@ -38,12 +38,6 @@ public class CallOutput extends Thread {
     @Override
     public void run(){
         while (!Thread.interrupted()){
-//            if(isDataReady){
-//                if (!speaker.isRunning()){
-//                    System.out.println("speaker go");
-//                    speaker.start();
-//                }
-//            }
             if(outputAvailable){
                 if (!isDataReady){
                     try {
@@ -53,11 +47,7 @@ public class CallOutput extends Thread {
                     } catch (InterruptedException ignored) {
                     }
                 }
-                System.out.println("play start");
-
                 speaker.write(audioBuffer, 0, 1000);
-                //speaker.stop();
-                //System.out.println("audio stop");
                 isDataReady = false;
 
             }

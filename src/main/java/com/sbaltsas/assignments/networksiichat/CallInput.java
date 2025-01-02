@@ -3,14 +3,14 @@ package com.sbaltsas.assignments.networksiichat;
 import javax.sound.sampled.*;
 
 public class CallInput extends Thread {
-    private AudioFormat format;
+    private final AudioFormat format;
     private TargetDataLine microphone;
     private boolean inputAvailable = false;
-    private byte[] audioData;
+    private final byte[] audioData;
     protected boolean isOnCall = false;
 
     public CallInput(){
-        format = new AudioFormat(8000, 8, 1, true, true);
+        format = new AudioFormat(44000, 8, 1, true, true);
         audioData = new byte[1000];
 
         Mixer.Info[] mixerInfo = AudioSystem.getMixerInfo();    //get available mixers
@@ -63,9 +63,6 @@ public class CallInput extends Thread {
                     remaining = audioData.length - microphone.available();
                 }
                 microphone.read(audioData, 0, 1000);
-                //System.out.println("sending");
-                //System.out.println(audioData);
-                //isOnCall = false;
                 if(isOnCall) {
                     App.client.sendVoicePacket(audioData);
                 }
