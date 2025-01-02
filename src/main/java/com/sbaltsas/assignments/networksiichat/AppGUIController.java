@@ -26,6 +26,8 @@ public class AppGUIController {
     @FXML
     private Button sendBtn;
     @FXML
+    private ToggleButton callButton;
+    @FXML
     private Label statusLabel;
     @FXML
     private ScrollPane textcontainer;
@@ -87,8 +89,15 @@ public class AppGUIController {
 
     @FXML
     protected void callButtonClick(ActionEvent actionEvent){
+        boolean call = callButton.isSelected();
+        if (call){
+            callButton.setText("End call");
+        }
+        else{
+            callButton.setText("Call!");
+        }
         if(clientConnected){
-            App.callInput.isOnCall = true;
+            App.callInput.isOnCall = call;
         }else{
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Not connected");

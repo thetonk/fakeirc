@@ -11,9 +11,9 @@
   <component name="ChangeListManager">
     <list default="true" id="c2c9608c-c165-48d4-8ac2-cd697b9e6ac0" name="Changes" comment="First client implementation">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sbaltsas/assignments/networksiichat/CallInput.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sbaltsas/assignments/networksiichat/CallInput.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sbaltsas/assignments/networksiichat/CallOutput.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sbaltsas/assignments/networksiichat/CallOutput.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sbaltsas/assignments/networksiichat/UDPServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sbaltsas/assignments/networksiichat/UDPServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sbaltsas/assignments/networksiichat/AppGUIController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sbaltsas/assignments/networksiichat/AppGUIController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/sbaltsas/assignments/networksiichat/AppGUI2.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/sbaltsas/assignments/networksiichat/AppGUI2.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,30 +49,36 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.AppStartup.executor&quot;: &quot;Run&quot;,
-    &quot;Application.AppStartup2.executor&quot;: &quot;Run&quot;,
-    &quot;Application.AppStartup6400.executor&quot;: &quot;Run&quot;,
-    &quot;Application.AppStartup6500.executor&quot;: &quot;Run&quot;,
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
-    &quot;Maven.NetworksIIChat [package].executor&quot;: &quot;Run&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/tifomi/Documents/fakeirc&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.4827586&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.importing&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.AppStartup.executor": "Run",
+    "Application.AppStartup2.executor": "Run",
+    "Application.AppStartup6400.executor": "Run",
+    "Application.AppStartup6500.executor": "Run",
+    "Downloaded.Files.Path.Enabled": "false",
+    "Maven.NetworksIIChat [package].executor": "Run",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/home/tifomi/Documents/fakeirc",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Artifacts",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.4827586",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.importing",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
-  <component name="RunManager" selected="Application.AppStartup6400">
+}]]></component>
+  <component name="RunManager" selected="Compound.Run parallel twice">
     <configuration name="AppStartup6400" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="com.sbaltsas.assignments.networksiichat.AppStartup" />
       <module name="NetworksIIChat" />
@@ -106,6 +112,14 @@
       <item itemvalue="Compound.Run parallel twice" />
     </list>
   </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-fdfe4dae3a2d-intellij.indexing.shared.core-IU-243.21565.193" />
+        <option value="bundled-js-predefined-d6986cc7102b-e768b9ed790e-JavaScript-IU-243.21565.193" />
+      </set>
+    </attachedChunks>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -114,6 +128,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1731163551883</updated>
+      <workItem from="1735813771814" duration="1519000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <option name="closed" value="true" />
@@ -141,6 +156,9 @@
     </task>
     <option name="localTasksCounter" value="4" />
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial commit" />

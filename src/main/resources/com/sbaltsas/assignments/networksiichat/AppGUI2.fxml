@@ -35,61 +35,19 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Menu?>
-<?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Separator?>
-<?import javafx.scene.control.SeparatorMenuItem?>
 <?import javafx.scene.control.Spinner?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.TextFlow?>
 
-<VBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="410.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sbaltsas.assignments.networksiichat.AppGUIController">
+<VBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="410.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sbaltsas.assignments.networksiichat.AppGUIController">
   <children>
-    <MenuBar VBox.vgrow="NEVER">
-      <menus>
-        <Menu mnemonicParsing="false" text="File">
-          <items>
-            <MenuItem mnemonicParsing="false" text="New" />
-            <MenuItem mnemonicParsing="false" text="Open…" />
-            <Menu mnemonicParsing="false" text="Open Recent" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Close" />
-            <MenuItem mnemonicParsing="false" text="Save" />
-            <MenuItem mnemonicParsing="false" text="Save As…" />
-            <MenuItem mnemonicParsing="false" text="Revert" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Preferences…" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Quit" />
-          </items>
-        </Menu>
-        <Menu mnemonicParsing="false" text="Edit">
-          <items>
-            <MenuItem mnemonicParsing="false" text="Undo" />
-            <MenuItem mnemonicParsing="false" text="Redo" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Cut" />
-            <MenuItem mnemonicParsing="false" text="Copy" />
-            <MenuItem mnemonicParsing="false" text="Paste" />
-            <MenuItem mnemonicParsing="false" text="Delete" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Select All" />
-            <MenuItem mnemonicParsing="false" text="Unselect All" />
-          </items>
-        </Menu>
-        <Menu mnemonicParsing="false" text="Help">
-          <items>
-            <MenuItem mnemonicParsing="false" text="About MyHelloApp" />
-          </items>
-        </Menu>
-      </menus>
-    </MenuBar>
-      <VBox prefHeight="78.0" prefWidth="640.0">
+      <VBox prefHeight="60.0" prefWidth="655.0">
          <children>
             <Label alignment="CENTER" maxWidth="1.7976931348623157E308" text="Peer settings" />
             <HBox prefHeight="46.0" prefWidth="640.0">
@@ -116,8 +74,11 @@
                      <HBox.margin>
                         <Insets right="30.0" />
                      </HBox.margin></Spinner>
-                   <Button mnemonicParsing="false" onAction="#connectButtonClick" text="Connect!" />
-                   <Button mnemonicParsing="false" onAction="#callButtonClick" text="Call!" />
+                   <Button mnemonicParsing="false" onAction="#connectButtonClick" text="Connect!">
+                     <HBox.margin>
+                        <Insets right="15.0" />
+                     </HBox.margin></Button>
+                  <ToggleButton fx:id="callButton" mnemonicParsing="false" onAction="#callButtonClick" text="Call!" />
                </children>
             </HBox>
          </children>
@@ -127,7 +88,7 @@
       </VBox>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="367.0" prefWidth="640.0" VBox.vgrow="ALWAYS">
          <children>
-            <ScrollPane fx:id="textcontainer" fitToHeight="true" layoutY="-6.0" prefHeight="257.0" prefWidth="633.0" vbarPolicy="ALWAYS" AnchorPane.bottomAnchor="64.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="2.0">
+            <ScrollPane fx:id="textcontainer" fitToHeight="true" layoutY="-6.0" prefHeight="248.0" prefWidth="633.0" vbarPolicy="ALWAYS" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="2.0">
               <content>
                   <TextFlow id="messages" fx:id="messages" lineSpacing="2.0" prefHeight="243.0" prefWidth="628.0" />
               </content>
@@ -135,7 +96,7 @@
             <TextField id="msgToSend" fx:id="msgToSend" layoutX="2.0" layoutY="258.0" minWidth="-Infinity" onKeyPressed="#onMessageKeyPressed" prefHeight="24.0" prefWidth="455.0" promptText="Type your message..." AnchorPane.leftAnchor="4.0" AnchorPane.topAnchor="258.0" />
             <Button id="sendBtn" fx:id="sendBtn" layoutX="490.0" layoutY="258.0" mnemonicParsing="false" onAction="#sendMessageClicked" prefHeight="24.0" prefWidth="85.0" text="Send!" />
             <Separator layoutX="12.0" layoutY="300.0" maxWidth="1.7976931348623157E308" prefHeight="0.0" prefWidth="0.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
-            <Label fx:id="statusLabel" alignment="BOTTOM_LEFT" contentDisplay="TEXT_ONLY" layoutX="3.0" layoutY="302.0" prefHeight="16.0" prefWidth="620.0" text="Status" />
+            <Label fx:id="statusLabel" alignment="BOTTOM_LEFT" contentDisplay="TEXT_ONLY" layoutX="10.0" layoutY="313.0" prefHeight="16.0" prefWidth="620.0" text="Status" />
          </children>
     </AnchorPane>
   </children>
